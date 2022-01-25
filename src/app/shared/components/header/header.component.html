@@ -1,13 +1,15 @@
   <mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button mat-icon-button class="example-icon" aria-label="Open main menu" (click)="goToHome()">
       <mat-icon>menu</mat-icon>
     </button>
     <span>My App</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Go to user" (click)="goToUserAccount()">
       <mat-icon>account_circle</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <button mat-icon-button class="example-icon" aria-label="Go to shopping-cart" (click)="goToShoppingCart()">
       <mat-icon>shopping_cart</mat-icon>
     </button>
   </mat-toolbar>
+
+
