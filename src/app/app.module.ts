@@ -12,6 +12,7 @@ import { ProductCardComponent } from './home/home-page/components/product-card/p
 import { HomePageComponent } from './home/home-page/home-page.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { UserPageComponent } from './user/user-page/user-page.component';
+import { ProductPageComponent } from './product/product-page/product-page.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { UserPageComponent } from './user/user-page/user-page.component';
     UserPageComponent,
     HeaderComponent,
     ProductCardComponent,
-    ButtonCardComponent
+    ButtonCardComponent,
+    ProductPageComponent
   ],
   imports: [
     BrowserModule,
