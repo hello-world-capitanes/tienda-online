@@ -11,19 +11,17 @@
       <input matInput formControlName="surname" required>
       <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
     </mat-form-field>
-    <mat-form-field class="signup__password" appearance="outline">
-      <mat-label>Contraseña</mat-label>
-      <input matInput type="password" placeholder="password" formControlName="password" required>
-      <!-- <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error> -->
-    </mat-form-field>
+
     <mat-form-field class="signup__password"  appearance="outline">
       <mat-label>Contraseña</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'">
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
         [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
+            <!-- <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error> -->
     </mat-form-field>
+    <app-strengh-bar [controller]="formGroup.get('password')"></app-strengh-bar>
 
     <mat-checkbox class="signup__privacy" formControlName="privacy" required>
       <span class="privacy__label">Al continuar, aceptas nuestros términos y condiciones así comola política de privacidad.</span>
@@ -34,4 +32,5 @@
       <button mat-raised-button color="accent" type="button" mat-dialog-close>Cancelar</button>
     </div>
   </form>
+
 </section>
