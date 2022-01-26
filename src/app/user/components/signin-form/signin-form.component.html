@@ -6,6 +6,11 @@
         <input matInput placeholder="email@example.com" formControlName="email" required>
         <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
       </mat-form-field>
+      <mat-form-field *ngIf="formGroup.get('password')?.enabled" class="signin__password" appearance="outline">
+        <mat-label>Enter your password</mat-label>
+        <input matInput placeholder="password" formControlName="password" required>
+        <!-- <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
       <div class="action-button__container">
         <button mat-raised-button color="primary" type="submit" [disabled]="formGroup.invalid">Continuar</button>
         <button mat-raised-button color="accent" mat-dialog-close>Cancelar</button>

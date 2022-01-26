@@ -1,16 +1,14 @@
 .signin__container {
   display: flex;
   flex-direction: column;
-
-
   margin: 2rem;
-
   max-width: 400px;
 }
 
-.signin__email {
+form > mat-form-field {
   min-width: 100%;
 }
+
 .action-button__container {
   display: flex;
   flex-direction: column;
