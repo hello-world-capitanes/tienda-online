@@ -3,8 +3,11 @@ import { HttpClientModule } from '@angular/common/http';
 import localeES from '@angular/common/locales/es';
 import localeEsExtra from '@angular/common/locales/extra/es';
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +19,7 @@ import { HomePageComponent } from './home/home-page/home-page.component';
 import { ProductPageComponent } from './product/product-page/product-page.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { OverShadowDirective } from './shared/directives/over-shadow.directive';
+import { SigninFormComponent } from './user/components/signin-form/signin-form.component';
 import { UserPageComponent } from './user/user-page/user-page.component';
 
 
@@ -31,6 +35,7 @@ registerLocaleData(localeES, 'es-ES', localeEsExtra);
     ButtonCardComponent,
     ProductPageComponent,
     OverShadowDirective,
+    SigninFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +45,9 @@ registerLocaleData(localeES, 'es-ES', localeEsExtra);
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es-ES' }, { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' }],
   bootstrap: [AppComponent],

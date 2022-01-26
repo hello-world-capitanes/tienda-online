@@ -1,0 +1,15 @@
+<section class="signin__container">
+  <h1>Identificate</h1>
+  <form [formGroup]="formGroup" (ngSubmit)="submitForm()">
+
+      <mat-form-field class="signin__email" appearance="outline">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="email@example.com" formControlName="email" required>
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <div class="action-button__container">
+        <button mat-raised-button color="primary" type="submit" [disabled]="formGroup.invalid">Continuar</button>
+        <button mat-raised-button color="accent">Cancelar</button>
+      </div>
+  </form>
+</section>
