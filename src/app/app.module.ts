@@ -5,6 +5,7 @@ import localeEsExtra from '@angular/common/locales/extra/es';
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -47,6 +48,7 @@ registerLocaleData(localeES, 'es-ES', localeEsExtra);
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogModule,
     ReactiveFormsModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es-ES' }, { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' }],

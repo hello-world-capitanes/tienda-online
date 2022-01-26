@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { URL_SHOP } from 'src/app/core/url.constants';
+import { SigninFormComponent } from 'src/app/user/components/signin-form/signin-form.component';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +10,9 @@ import { URL_SHOP } from 'src/app/core/url.constants';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private router: Router) {}
+
+
+  constructor(private router: Router, private matDialog: MatDialog) {}
 
   ngOnInit(): void {}
 
@@ -17,7 +21,11 @@ export class HeaderComponent implements OnInit {
   };
 
   goToUserAccount() {
-    this.goToURL(URL_SHOP.USER)
+    if(!this.isUserLogged()) {
+      this.openSigninForm()
+    } else {
+      this.goToURL(URL_SHOP.USER)
+    }
   };
 
   goToShoppingCart() {
@@ -26,6 +34,17 @@ export class HeaderComponent implements OnInit {
 
   goToURL(url: string) {
     this.router.navigate([url]);
+  }
+
+  private isUserLogged() {
+    return false
+  }
+
+  private openSigninForm() {
+    const dialogRef = this.matDialog.open(SigninFormComponent, {width: '500px'});
+
+    dialogRef.afterClosed().subscribe(result => console.log('respuesta del modal', result)
+    );
   }
 
 }
