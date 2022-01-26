@@ -15,7 +15,6 @@ export class SigninFormComponent implements OnInit {
     this.formGroup = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl({value: null, disabled: true}, [Validators.required]),
-
     });
   }
 
@@ -23,18 +22,24 @@ export class SigninFormComponent implements OnInit {
 
   submitForm() {
     window.alert('Formulario ' + JSON.stringify(this.formGroup.value));
-    if(this.isUserRegistered()) {
-      this.requestPassword();
+    if(this.formGroup.invalid){
+      return;
     }
 
-    if(this.formGroup.valid) {
+    if(this.formGroup.get('password')?.enable()) {
+      this.dialogRef.close(this.formGroup.value);
+    }
+
+    if(this.isUserRegistered()) {
+      this.requestPassword();
+    } else {
       this.dialogRef.close(this.formGroup.value);
     }
   }
 
   private isUserRegistered() {
     // Esto sería una llamada al back
-    return true;
+    return false;
   }
 
   private requestPassword() {

@@ -5,6 +5,7 @@ import localeEsExtra from '@angular/common/locales/extra/es';
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,9 +21,9 @@ import { HomePageComponent } from './home/home-page/home-page.component';
 import { ProductPageComponent } from './product/product-page/product-page.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { OverShadowDirective } from './shared/directives/over-shadow.directive';
+import { SignUpFormComponent } from './user/components/sign-up-form/sign-up-form.component';
 import { SigninFormComponent } from './user/components/signin-form/signin-form.component';
 import { UserPageComponent } from './user/user-page/user-page.component';
-
 
 registerLocaleData(localeES, 'es-ES', localeEsExtra);
 
@@ -37,6 +38,7 @@ registerLocaleData(localeES, 'es-ES', localeEsExtra);
     ProductPageComponent,
     OverShadowDirective,
     SigninFormComponent,
+    SignUpFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,9 +51,13 @@ registerLocaleData(localeES, 'es-ES', localeEsExtra);
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCheckboxModule,
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'es-ES' }, { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' }],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'es-ES' },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
