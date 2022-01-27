@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { ERROR_MESSAGES } from 'src/app/core/utils/error-messages';
 
 @Component({
   selector: 'app-signin-form',
@@ -45,6 +46,10 @@ export class SigninFormComponent implements OnInit {
   private requestPassword() {
     this.formGroup.get('password')?.enable();
     this.formGroup.get('password')?.markAsUntouched;
+  }
+
+  getErrorMessage(idError:string): string {
+    return ERROR_MESSAGES[idError];
   }
 
 }

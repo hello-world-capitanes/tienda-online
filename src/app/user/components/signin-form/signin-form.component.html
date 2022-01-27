@@ -1,19 +1,22 @@
 <section class="signin__container">
   <h1>Identificate</h1>
   <form [formGroup]="formGroup" (ngSubmit)="submitForm()">
-      <mat-form-field class="signin__email" appearance="outline">
-        <mat-label>Enter your email</mat-label>
-        <input matInput placeholder="email@example.com" formControlName="email" required>
-        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-      </mat-form-field>
-      <mat-form-field *ngIf="formGroup.get('password')?.enabled" class="signin__password" appearance="outline">
-        <mat-label>Enter your password</mat-label>
-        <input matInput placeholder="password" formControlName="password" required>
-        <!-- <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error> -->
-      </mat-form-field>
-      <div class="action-button__container">
-        <button mat-raised-button color="primary" type="submit" [disabled]="formGroup.invalid">Continuar</button>
-        <button mat-raised-button color="accent" mat-dialog-close>Cancelar</button>
-      </div>
+    <mat-form-field class="signin__email" appearance="outline">
+      <mat-label>Enter your email</mat-label>
+      <input matInput placeholder="email@example.com" formControlName="email" required>
+      <mat-error *ngIf="formGroup.get('email')?.errors && formGroup.get('email')?.hasError('required')">
+        {{getErrorMessage('required')}}</mat-error>
+      <mat-error *ngIf="formGroup.get('email')?.errors && formGroup.get('email')?.hasError('email')">
+        {{getErrorMessage('email_format')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field *ngIf="formGroup.get('password')?.enabled" class="signin__password" appearance="outline">
+      <mat-label>Enter your password</mat-label>
+      <input matInput placeholder="password" formControlName="password" required>
+      <!-- <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    <div class="action-button__container">
+      <button mat-raised-button color="primary" type="submit" [disabled]="formGroup.invalid">Continuar</button>
+      <button mat-raised-button color="accent" mat-dialog-close>Cancelar</button>
+    </div>
   </form>
 </section>
