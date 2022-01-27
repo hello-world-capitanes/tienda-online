@@ -12,6 +12,13 @@
       <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
     </mat-form-field>
 
+     <mat-form-field class="signup__dni" appearance="outline">
+       <mat-label>DNI</mat-label>
+       <input matInput formControlName="dni" required>
+       <mat-error *ngIf=" formGroup.get('dni')?.errors && formGroup.get('dni')?.hasError('documento')">
+         {{getErrorMessage('documento')}}</mat-error>
+     </mat-form-field>
+
     <mat-form-field class="signup__password"  appearance="outline">
       <mat-label>Contraseña</mat-label>
       <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
@@ -26,6 +33,8 @@
     <mat-checkbox class="signup__privacy" formControlName="privacy" required>
       <span class="privacy__label">Al continuar, aceptas nuestros términos y condiciones así comola política de privacidad.</span>
     </mat-checkbox>
+
+
 
     <div class="action-button__container">
       <button mat-raised-button color="primary" type="submit" [disabled]="formGroup.invalid">Continuar</button>
