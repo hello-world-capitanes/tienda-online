@@ -25,6 +25,7 @@ import { SignUpFormComponent } from './user/components/sign-up-form/sign-up-form
 import { SigninFormComponent } from './user/components/signin-form/signin-form.component';
 import { UserPageComponent } from './user/user-page/user-page.component';
 import { StrenghBarComponent } from './user/components/strengh-bar/strengh-bar.component';
+import { ButtonCounterComponent } from './home/home-page/components/button-counter/button-counter.component';
 
 registerLocaleData(localeES, 'es-ES', localeEsExtra);
 
@@ -41,6 +42,7 @@ registerLocaleData(localeES, 'es-ES', localeEsExtra);
     SigninFormComponent,
     SignUpFormComponent,
     StrenghBarComponent,
+    ButtonCounterComponent,
   ],
   imports: [
     BrowserModule,
