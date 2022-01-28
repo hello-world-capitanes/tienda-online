@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ButtonCounterComponent } from '../button-counter/button-counter.component';
 
 @Component({
   selector: 'app-button-card',
@@ -7,18 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ButtonCardComponent implements OnInit {
 
-  counter = 0;
+  @ViewChild( ButtonCounterComponent) buttonCounter!: ButtonCounterComponent;
+  visible: boolean = true;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+
+  /** OJO! que de esta forma no nos enteramos de cuando nuestro contandor pasa a cero */
   addProduct() {
-    this.counter++;
+    this.buttonCounter.addProduct()
+    this.visible = this.buttonCounter.counter < 1
+
   }
-  deleteProduct() {
-    this.counter--;
-  }
+
+
+
 
 }

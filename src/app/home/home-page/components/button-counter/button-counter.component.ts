@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./button-counter.component.scss'],
 })
 export class ButtonCounterComponent implements OnInit {
+
   counter = 0;
 
   constructor() {}
