@@ -1,0 +1,10 @@
+   <div *ngIf="counter > 0" class="product-card__amount">
+     <button class=" button-add --rounded" type="button" name="add product" (click)="deleteProduct()">
+       <i class="material-icons" *ngIf="counter == 1">delete_forever</i>
+       <span class="button-text--rounded" *ngIf="counter> 1">-</span>
+     </button>
+     <div class="product-amount">{{counter}}</div>
+     <button class="button-add --rounded" type="button" name="add product" (click)="addProduct()">
+       <span class="button-text--rounded">+</span>
+     </button>
+   </div>
