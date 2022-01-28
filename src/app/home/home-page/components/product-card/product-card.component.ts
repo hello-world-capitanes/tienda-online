@@ -11,6 +11,7 @@ import { Product } from 'src/app/models/producto.model';
 export class ProductCardComponent implements OnInit {
 
   @Input() producto: Product | undefined;
+  @Input() smallSize = false;
 
   @Output() onClickSection: EventEmitter<void> = new EventEmitter();
 

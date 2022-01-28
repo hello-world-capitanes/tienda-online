@@ -1,5 +1,5 @@
-<div class="product-card" appOverShadow>
-  <section (click)="goToDetail()">
+<div class="product-card" [ngClass]="{'force-small': smallSize}" appOverShadow>
+  <section class="product-card__section--small" [ngClass]="{'force-small': smallSize}" (click)="goToDetail()">
 
     <div class="product-card__img">
       <img [src]="producto?.image" alt="imagen producto">
