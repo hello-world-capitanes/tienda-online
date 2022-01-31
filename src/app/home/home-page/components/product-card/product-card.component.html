@@ -2,25 +2,25 @@
   <section class="product-card__section--small" [ngClass]="{'force-small': smallSize}" (click)="goToDetail()">
 
     <div class="product-card__img">
-      <img [src]="producto?.image" alt="imagen producto">
+      <img [src]="_product?.image" alt="imagen producto">
       <span class="product-card__img--overlay"></span>
     </div>
 
     <div class="product-card__title">
-      {{producto?.name}}
+      {{_product?.name}}
     </div>
     <div class="product-card__definition">
-      {{producto?.description}}
+      {{_product?.description}}
     </div>
 
     <div class="product-card__price">
-      <div class="product-price__unit">{{producto?.price | currency }}</div>
+      <div class="product-price__unit">{{_product?.price | currency }}</div>
       <div class="product-price__extra"> /ud. </div>
     </div>
 
   </section>
   <div class="product-card__button">
-    <app-button-card></app-button-card>
+    <app-button-card [counter]="counter"(onClickAdd)="addProduct()"(onClickDelete)="deleteProduct()"></app-button-card>
   </div>
 
 </div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-button-counter',
@@ -6,16 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./button-counter.component.scss'],
 })
 export class ButtonCounterComponent implements OnInit {
-  counter = 0;
+  @Input() counter = 0;
+  @Output() onClickAdd: EventEmitter<void> = new EventEmitter();
+  @Output() onClickDelete: EventEmitter<void> = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
 
   addProduct() {
-    this.counter++;
+    this.onClickAdd.emit();
   }
   deleteProduct() {
-    this.counter--;
+    this.onClickDelete.emit();;
   }
 }
