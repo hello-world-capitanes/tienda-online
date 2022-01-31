@@ -36,7 +36,6 @@ export class ProductCardComponent implements OnInit {
   }
 
   addProduct() {
-    debugger;
     this.shoppingCartService.add(this._product);
   }
   deleteProduct() {

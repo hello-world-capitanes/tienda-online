@@ -22,8 +22,6 @@ export class HomePageComponent implements OnInit {
   }
 
   goToDetail(producto: Product) {
-
     this.router.navigate([URL_SHOP.PRODUCT_DETAIL, producto.id, producto.name])
-
   }
 }
