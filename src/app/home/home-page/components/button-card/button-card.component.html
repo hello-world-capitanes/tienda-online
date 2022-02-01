@@ -1,0 +1,9 @@
+  <div class="product-card__button">
+    <button class="button-add" type="button" name="add product" *ngIf="!counter || counter == 0"
+      (click)="addProduct()">
+      Añadir al carro
+    </button>
+
+    <app-button-counter #btnCounter [counter]="counter" (onClickAdd)="addProduct()" (onClickDelete)="deleteProduct()"></app-button-counter>
+
+  </div>

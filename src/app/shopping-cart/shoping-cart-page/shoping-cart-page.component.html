@@ -1,0 +1,28 @@
+<div id="mySidenav" class="sidenav" [ngClass]="{'sidenav--close': !isOpenMenu, 'sidenav--open': isOpenMenu}">
+  <section class="shopping-cart__header">
+    <mat-icon (click)="closeMenu()">close</mat-icon>
+    <div class="shopping-cart__title">
+      <h1>Carro</h1>
+      <h2>Entregar en X</h2>
+    </div>
+    <div class="shopping-cart__btn-delete">
+      <span>Vaciar</span>
+      <mat-icon (click)="deleteAll()">delete</mat-icon>
+    </div>
+  </section>
+  <hr class="solid">
+
+  <section class="shopping-cart__container">
+    <app-product-card *ngFor="let producto of listProducts" [product]="producto" [smallSize]='true'></app-product-card>
+  </section>
+  <hr class="solid">
+  <section class="shopping-cart__footer">
+    <div class="shopping-cart__total">
+      <h2>Total</h2>
+      <h2>X</h2>
+    </div>
+    <button mat-raised-button color="primary" >Tramitar pedido</button>
+  </section>
+
+</div>
+<div class="sidenav--overlay" (click)="closeMenu()" *ngIf="isOpenMenu"></div>

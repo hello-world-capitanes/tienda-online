@@ -1,0 +1,183 @@
+@import '../../../../../assets/styles/variables.scss';
+
+* {
+  font-family: $primary-font;
+}
+
+.product-card {
+  display: inline-grid;
+  padding: .5rem;
+  border-radius: 12px;
+  transition: box-shadow .2s ease-in-out;
+  overflow: hidden;
+  min-width: 170px;
+  max-width: 250px;
+}
+
+/* .product-card:hover {
+  z-index: 1;
+  box-shadow: $shadow-card-2-active;
+} */
+
+.product-card__img {
+  margin: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-card__img>img {
+  width: 100%;
+  height: auto;
+}
+
+.product-card__img--overlay {
+  background-color: black;
+  opacity: .03;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.product-card__title {
+  height: 48px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+.product-card__button {
+
+  justify-self: center;
+  width: 80%;
+}
+
+
+.product-card__definition {
+  color: $smoked-70;
+  font-size: .75rem;
+}
+
+.product-card__price {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 1rem;
+  align-items: baseline;
+}
+
+.product-price__unit {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.product-price__extra {
+  color: $smoked-70;
+}
+
+/* https://stackoverflow.com/questions/54907270/how-to-specify
+-the-maximum-number-of-columns-repeat-will-create-using-auto-fit*/
+
+
+.product-card__img{
+  grid-area: imgArea;
+}
+@media (max-width: calc(220px * 2)) {
+
+  .product-card__img>img {
+    max-width: 130px;
+  }
+
+  .product-card__button {
+    grid-area: buttonArea;
+    text-align: center;
+  }
+
+  .button-add {
+    width: 60%;
+
+  }
+  .product-card {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    max-width: none;
+    max-height: 270px;
+    min-width: 300px;
+
+  }
+
+
+  .product-card__title {
+    max-width: 135px;
+  }
+
+  .product-card__section--small {
+    display:grid;
+    max-width: none;
+    max-height: 270px;
+    min-width: 300px;
+    grid-template-areas:
+    "imgArea . "
+    "imgArea . "
+    "imgArea . ";
+    gap: 1rem;
+    justify-content: space-around;
+
+  }
+
+
+
+
+
+}
+
+ .force-small > .product-card__img>img {
+    max-width: 130px;
+  }
+
+  .force-small > .product-card__button {
+    grid-area: buttonArea;
+    text-align: center;
+  }
+
+   .force-small > .button-add {
+    width: 60%;
+
+  }
+   .product-card.force-small  {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    max-width: none;
+    max-height: 270px;
+    min-width: 300px;
+
+  }
+
+
+   .force-small > .product-card__title {
+    max-width: 135px;
+  }
+
+   .force-small > .product-card__section--small {
+    display:grid;
+    max-width: none;
+    max-height: 270px;
+    min-width: 300px;
+    grid-template-areas:
+    "imgArea . "
+    "imgArea . "
+    "imgArea . ";
+    gap: 1rem;
+    justify-content: space-around;
+
+  }
+
+
+
