@@ -23,7 +23,7 @@ import { HomePageComponent } from './home/home-page/home-page.component';
 import { ProductPageComponent } from './product/product-page/product-page.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { OverShadowDirective } from './shared/directives/over-shadow.directive';
-import { ShopingCartPageComponent } from './shopping-cart/shoping-cart-page/shoping-cart-page.component';
+import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
 import { SignUpFormComponent } from './user/components/sign-up-form/sign-up-form.component';
 import { SigninFormComponent } from './user/components/signin-form/signin-form.component';
 import { StrenghBarComponent } from './user/components/strengh-bar/strengh-bar.component';
@@ -45,7 +45,7 @@ registerLocaleData(localeES, 'es-ES', localeEsExtra);
     SignUpFormComponent,
     StrenghBarComponent,
     ButtonCounterComponent,
-    ShopingCartPageComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -61,6 +61,7 @@ registerLocaleData(localeES, 'es-ES', localeEsExtra);
     ReactiveFormsModule,
     MatCheckboxModule,
     MatSidenavModule,
+    ShoppingCartModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'es-ES' },
