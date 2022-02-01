@@ -1,16 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { ProductCardComponent } from '../home/home-page/components/product-card/product-card.component';
+import { ProductCardModule } from '../shared/components/product-card/product-card.module';
 import { ShopingCartPageComponent } from './shoping-cart-page/shoping-cart-page.component';
 
 
 
 @NgModule({
-  declarations: [ShopingCartPageComponent, ProductCardComponent],
+  declarations: [ShopingCartPageComponent],
   imports: [
     CommonModule,
-    MatIconModule
+    MatIconModule,
+    ProductCardModule
   ],
   exports: [ShopingCartPageComponent]
 })
