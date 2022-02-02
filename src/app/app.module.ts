@@ -17,7 +17,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home/home-page/home-page.component';
-import { ProductPageComponent } from './product/product-page/product-page.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { ProductCardModule } from './shared/components/product-card/product-card.module';
 import { OverShadowDirective } from './shared/directives/over-shadow.directive';
@@ -35,7 +34,6 @@ registerLocaleData(localeES, 'es-ES', localeEsExtra);
     HomePageComponent,
     UserPageComponent,
     HeaderComponent,
-    ProductPageComponent,
     OverShadowDirective,
     SigninFormComponent,
     SignUpFormComponent,
@@ -58,7 +56,7 @@ registerLocaleData(localeES, 'es-ES', localeEsExtra);
     MatCheckboxModule,
     MatSidenavModule,
     ShoppingCartModule,
-    ProductCardModule
+    ProductCardModule,
 
   ],
   providers: [
