@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { URL_SHOP } from 'src/app/core/url.constants';
@@ -12,6 +12,7 @@ import { SigninFormComponent } from 'src/app/user/components/signin-form/signin-
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  @Output() onOpenMenu: EventEmitter<void> = new EventEmitter();
   constructor(private router: Router, private matDialog: MatDialog) {}
 
   ngOnInit(): void {}
@@ -29,7 +30,8 @@ export class HeaderComponent implements OnInit {
   }
 
   goToShoppingCart() {
-    this.goToURL(URL_SHOP.SHOPPING_CART);
+    // this.goToURL(URL_SHOP.SHOPPING_CART);
+    this.onOpenMenu.emit();
   }
 
   goToURL(url: string) {

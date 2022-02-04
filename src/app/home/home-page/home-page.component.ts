@@ -18,11 +18,10 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
    this.listProducts = this.productsService.getAllProducts()
+   console.log(this.listProducts);
   }
 
   goToDetail(producto: Product) {
-
     this.router.navigate([URL_SHOP.PRODUCT_DETAIL, producto.id, producto.name])
-
   }
 }

@@ -10,21 +10,24 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ButtonCardComponent } from './home/home-page/components/button-card/button-card.component';
+import { ButtonCounterComponent } from './home/home-page/components/button-counter/button-counter.component';
 import { ProductCardComponent } from './home/home-page/components/product-card/product-card.component';
 import { HomePageComponent } from './home/home-page/home-page.component';
 import { ProductPageComponent } from './product/product-page/product-page.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { OverShadowDirective } from './shared/directives/over-shadow.directive';
+import { ShopingCartPageComponent } from './shopping-cart/shoping-cart-page/shoping-cart-page.component';
 import { SignUpFormComponent } from './user/components/sign-up-form/sign-up-form.component';
 import { SigninFormComponent } from './user/components/signin-form/signin-form.component';
-import { UserPageComponent } from './user/user-page/user-page.component';
 import { StrenghBarComponent } from './user/components/strengh-bar/strengh-bar.component';
+import { UserPageComponent } from './user/user-page/user-page.component';
 
 registerLocaleData(localeES, 'es-ES', localeEsExtra);
 
@@ -41,6 +44,8 @@ registerLocaleData(localeES, 'es-ES', localeEsExtra);
     SigninFormComponent,
     SignUpFormComponent,
     StrenghBarComponent,
+    ButtonCounterComponent,
+    ShopingCartPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +60,7 @@ registerLocaleData(localeES, 'es-ES', localeEsExtra);
     MatDialogModule,
     ReactiveFormsModule,
     MatCheckboxModule,
+    MatSidenavModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'es-ES' },

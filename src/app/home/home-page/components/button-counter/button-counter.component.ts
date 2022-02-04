@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
+
 @Component({
-  selector: 'app-button-card',
-  templateUrl: './button-card.component.html',
-  styleUrls: ['./button-card.component.scss'],
+  selector: 'app-button-counter',
+  templateUrl: './button-counter.component.html',
+  styleUrls: ['./button-counter.component.scss'],
 })
-export class ButtonCardComponent implements OnInit {
+export class ButtonCounterComponent implements OnInit {
   @Input() counter = 0;
   @Output() onClickAdd: EventEmitter<void> = new EventEmitter();
   @Output() onClickDelete: EventEmitter<void> = new EventEmitter();
@@ -16,10 +17,8 @@ export class ButtonCardComponent implements OnInit {
 
   addProduct() {
     this.onClickAdd.emit();
-    this.counter++;
   }
   deleteProduct() {
-    this.onClickDelete.emit();
-    this.counter--;
+    this.onClickDelete.emit();;
   }
 }
