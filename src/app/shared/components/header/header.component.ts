@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { URL_SHOP } from 'src/app/core/url.constants';
 import { User } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { SignUpFormComponent } from 'src/app/user/components/sign-up-form/sign-up-form.component';
 import { SigninFormComponent } from 'src/app/user/components/signin-form/signin-form.component';
 
@@ -13,7 +14,7 @@ import { SigninFormComponent } from 'src/app/user/components/signin-form/signin-
 })
 export class HeaderComponent implements OnInit {
   @Output() onOpenMenu: EventEmitter<void> = new EventEmitter();
-  constructor(private router: Router, private matDialog: MatDialog) {}
+  constructor(private router: Router, private matDialog: MatDialog, private authService: AuthService) {}
 
   ngOnInit(): void {}
 
@@ -39,7 +40,7 @@ export class HeaderComponent implements OnInit {
   }
 
   private isUserLogged() {
-    return false;
+    return this.authService.userLogged;
   }
 
   private openSigninForm() {
@@ -53,6 +54,10 @@ export class HeaderComponent implements OnInit {
 
       if (result && !result.password) {
         this.openSignUpForm(result);
+      }
+
+      if(result && result.password && result.email){
+        this.authService.userLogin = {...result, logged: true};
       }
     });
   }

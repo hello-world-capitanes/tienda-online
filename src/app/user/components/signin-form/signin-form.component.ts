@@ -27,7 +27,7 @@ export class SigninFormComponent implements OnInit {
       return;
     }
 
-    if(this.formGroup.get('password')?.enable()) {
+    if(this.formGroup.get('password')?.enabled) {
       this.dialogRef.close(this.formGroup.value);
     }
 
@@ -40,7 +40,9 @@ export class SigninFormComponent implements OnInit {
 
   private isUserRegistered() {
     // Esto sería una llamada al back
-    return false;
+    const users = ['capitan@hw.com', 'fernando@hw.com'];
+
+    return users.includes(this.formGroup.value.email);
   }
 
   private requestPassword() {
