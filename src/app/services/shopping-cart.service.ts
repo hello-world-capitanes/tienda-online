@@ -1,50 +1,44 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { Product, ProductCard } from '../models/producto.model';
+import { Product } from '../models/producto.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ShoppingCartService {
-  shoppingCartList: Map<number, ProductCard> =
-    new Map();
-
-  hasChangedSource: Subject<ProductCard> = new Subject();
+  shoppingCartList: Map<number, Product> = new Map();
 
   constructor() {}
 
   add(product: Product) {
     let counter = 0;
     if (this.shoppingCartList.has(product.id)) {
-      counter = this.shoppingCartList.get(product.id)?.counter || 0;
+      counter = product.counter.getValue();
+    } else {
+      this.shoppingCartList.set(product.id, product);
     }
     counter++;
-    this.shoppingCartList.set(product.id, { product, counter });
 
-    this.hasChangedSource.next({ product, counter });
+    product.counter.next(counter);
   }
 
   delete(product: Product) {
     let counter = 0;
     if (this.shoppingCartList.has(product.id)) {
-      counter = this.shoppingCartList.get(product.id)?.counter || 0;
+      counter = product.counter.getValue();
       counter--;
     }
 
     if (counter == 0 || counter < 0) {
       this.shoppingCartList.delete(product.id);
-    } else {
-      this.shoppingCartList.set(product.id, { product, counter });
     }
 
-    this.hasChangedSource.next({ product, counter });
+      product.counter.next(counter);
+
   }
 
-  toList(): ProductCard[] {
+  toList(): Product[] {
     return [...this.shoppingCartList.values()];
   }
 
-  get hasChanged$() {
-    return this.hasChangedSource.asObservable();
-  }
+
 }

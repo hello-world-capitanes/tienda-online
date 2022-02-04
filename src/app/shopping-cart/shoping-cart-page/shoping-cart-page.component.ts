@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ProductCard } from 'src/app/models/producto.model';
-import { ProductsService } from 'src/app/services/products.service';
+import { Product } from 'src/app/models/producto.model';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
@@ -12,20 +10,16 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 export class ShopingCartPageComponent implements OnInit {
   isOpenMenu = false;
 
-  listProducts: ProductCard[] = [];
+  listProducts: Product[] = [];
 
 
   constructor(
-    private productsService: ProductsService,
     private shoppingCartService: ShoppingCartService,
-    private router: Router
   ) {}
 
   ngOnInit(): void {
 
   }
-
-
 
   openMenu() {
     this.listProducts = this.shoppingCartService.toList();
@@ -36,5 +30,10 @@ export class ShopingCartPageComponent implements OnInit {
     this.isOpenMenu = false;
   }
 
-  deleteAll() {}
+  deleteAll() {
+
+    //Esto también se puede hacer con un observable
+    this.shoppingCartService.shoppingCartList = new Map();
+    this.listProducts = this.shoppingCartService.toList();
+  }
 }

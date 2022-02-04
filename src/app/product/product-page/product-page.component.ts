@@ -10,7 +10,7 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductPageComponent implements OnInit {
 
-  product: Product | undefined;
+  product: Partial<Product> | undefined;
   constructor(private route: ActivatedRoute, private productService: ProductsService) {}
 
   ngOnInit(): void {

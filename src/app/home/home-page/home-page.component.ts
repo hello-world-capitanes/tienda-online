@@ -1,10 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { URL_SHOP } from 'src/app/core/url.constants';
-import { getId, Product, ProductCard } from 'src/app/models/producto.model';
+import { Product } from 'src/app/models/producto.model';
 import { ProductsService } from 'src/app/services/products.service';
-import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 
 @Component({
@@ -13,40 +12,30 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit, OnDestroy {
-  listProducts: (Product | ProductCard)[] = [];
+  listProducts: Product[] = [];
 
   subscription!: Subscription;
 
   constructor(
     private productsService: ProductsService,
-    private shoppinCartService: ShoppingCartService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.listProducts = this.productsService.getAllProducts();
+    this.listProducts = this.productsService.getAllProducts().map(product => {
+      return {...product, counter: new BehaviorSubject(0)} as Product
+    });
 
     console.log(this.listProducts);
 
-    this.subscription = this.shoppinCartService.hasChanged$.subscribe(
-      (productUpdated) => {
-        const index = this.listProducts.findIndex(
-          (product) => productUpdated.product.id === getId(product)
-        );
-
-        this.listProducts[index] = productUpdated;
-      }
-    );
   }
 
-  goToDetail(product: Product | ProductCard) {
-    let realProduct: Product = product.hasOwnProperty('product')
-      ? (product as ProductCard).product
-      : (product as Product);
+  goToDetail(product: Product ) {
+
     this.router.navigate([
       URL_SHOP.PRODUCT_DETAIL,
-      realProduct.id,
-      realProduct.name,
+      product.id,
+      product.name,
     ]);
   }
 
