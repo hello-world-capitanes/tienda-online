@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { URL_SHOP } from 'src/app/core/url.constants';
+import { Product } from 'src/app/models/producto.model';
 import { ProductsService } from 'src/app/services/products.service';
-import { Product } from 'src/models/producto.model';
+
 
 @Component({
   selector: 'app-home-page',
