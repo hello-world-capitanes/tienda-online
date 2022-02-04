@@ -6,7 +6,7 @@ import { Product } from '../models/producto.model';
   providedIn: 'root',
 })
 export class ShoppingCartService {
-  [x: string]: any;
+
   shoppingCartList: Map<number, Product> = new Map();
 
   constructor() {
