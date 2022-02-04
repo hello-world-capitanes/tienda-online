@@ -16,14 +16,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ButtonCardComponent } from './home/home-page/components/button-card/button-card.component';
-import { ButtonCounterComponent } from './home/home-page/components/button-counter/button-counter.component';
-import { ProductCardComponent } from './home/home-page/components/product-card/product-card.component';
 import { HomePageComponent } from './home/home-page/home-page.component';
-import { ProductPageComponent } from './product/product-page/product-page.component';
 import { HeaderComponent } from './shared/components/header/header.component';
+import { ProductCardModule } from './shared/components/product-card/product-card.module';
 import { OverShadowDirective } from './shared/directives/over-shadow.directive';
-import { ShopingCartPageComponent } from './shopping-cart/shoping-cart-page/shoping-cart-page.component';
+import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
 import { SignUpFormComponent } from './user/components/sign-up-form/sign-up-form.component';
 import { SigninFormComponent } from './user/components/signin-form/signin-form.component';
 import { StrenghBarComponent } from './user/components/strengh-bar/strengh-bar.component';
@@ -37,15 +34,12 @@ registerLocaleData(localeES, 'es-ES', localeEsExtra);
     HomePageComponent,
     UserPageComponent,
     HeaderComponent,
-    ProductCardComponent,
-    ButtonCardComponent,
-    ProductPageComponent,
     OverShadowDirective,
     SigninFormComponent,
     SignUpFormComponent,
     StrenghBarComponent,
-    ButtonCounterComponent,
-    ShopingCartPageComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -61,6 +55,9 @@ registerLocaleData(localeES, 'es-ES', localeEsExtra);
     ReactiveFormsModule,
     MatCheckboxModule,
     MatSidenavModule,
+    ShoppingCartModule,
+    ProductCardModule,
+
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'es-ES' },
