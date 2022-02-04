@@ -6,6 +6,7 @@ import { Product } from '../models/producto.model';
   providedIn: 'root',
 })
 export class ShoppingCartService {
+  [x: string]: any;
   shoppingCartList: Map<number, Product> = new Map();
 
   constructor() {
@@ -74,5 +75,11 @@ export class ShoppingCartService {
       return {...product, counter: new BehaviorSubject(0)}
     }
 
+  }
+
+
+  deleteAll() {
+    [...this.shoppingCartList.values()].forEach(prod => prod.counter.next(0));
+    this.saveShoppingCartList();
   }
 }

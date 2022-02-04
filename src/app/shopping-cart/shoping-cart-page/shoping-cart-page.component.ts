@@ -33,7 +33,7 @@ export class ShopingCartPageComponent implements OnInit {
   deleteAll() {
 
     //Esto también se puede hacer con un observable
-    this.shoppingCartService.shoppingCartList = new Map();
+    this.shoppingCartService.deleteAll();
     this.listProducts = this.shoppingCartService.toList();
   }
 }
