@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Product, ProductCard } from '../models/producto.model';
 
 @Injectable({
@@ -7,6 +8,8 @@ import { Product, ProductCard } from '../models/producto.model';
 export class ShoppingCartService {
   shoppingCartList: Map<number, ProductCard> =
     new Map();
+
+  hasChangedSource: Subject<ProductCard> = new Subject();
 
   constructor() {}
 
@@ -17,6 +20,8 @@ export class ShoppingCartService {
     }
     counter++;
     this.shoppingCartList.set(product.id, { product, counter });
+
+    this.hasChangedSource.next({ product, counter });
   }
 
   delete(product: Product) {
@@ -31,9 +36,15 @@ export class ShoppingCartService {
     } else {
       this.shoppingCartList.set(product.id, { product, counter });
     }
+
+    this.hasChangedSource.next({ product, counter });
   }
 
   toList(): ProductCard[] {
     return [...this.shoppingCartList.values()];
+  }
+
+  get hasChanged$() {
+    return this.hasChangedSource.asObservable();
   }
 }
