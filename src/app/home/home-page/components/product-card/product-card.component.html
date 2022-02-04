@@ -1,0 +1,27 @@
+<div class="product-card">
+
+  <div class="product-card__img">
+    <img [src]="producto?.image"
+      alt="imagen producto">
+    <span class="product-card__img--overlay"></span>
+  </div>
+
+  <div class="product-card__title">
+   {{producto?.name}}
+  </div>
+  <div class="product-card__definition">
+    {{producto?.description}}
+  </div>
+
+  <div class="product-card__price">
+    <div class="product-price__unit">{{producto?.price}} €</div>
+    <div class="product-price__extra"> /ud. </div>
+  </div>
+
+  <div class="product-card__button">
+      <app-button-card></app-button-card>
+
+
+  </div>
+
+</div>
