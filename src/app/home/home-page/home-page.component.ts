@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { URL_SHOP } from 'src/app/core/url.constants';
 import { Product } from 'src/app/models/producto.model';
 import { ProductsService } from 'src/app/services/products.service';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 
 @Component({
@@ -18,12 +19,14 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   constructor(
     private productsService: ProductsService,
+    private shoppingCartService: ShoppingCartService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
+
     this.listProducts = this.productsService.getAllProducts().map(product => {
-      return {...product, counter: new BehaviorSubject(0)} as Product
+      return this.shoppingCartService.isAddedToCart(product) as Product
     });
 
     console.log(this.listProducts);
