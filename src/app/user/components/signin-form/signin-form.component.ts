@@ -47,7 +47,7 @@ export class SigninFormComponent implements OnInit {
 
   private requestPassword() {
     this.formGroup.get('password')?.enable();
-    this.formGroup.get('password')?.markAsUntouched;
+    this.formGroup.get('password')?.markAsUntouched();
   }
 
   getErrorMessage(idError:string): string {
