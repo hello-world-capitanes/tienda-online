@@ -13,6 +13,7 @@ import { HomePageComponent } from './home/home-page/home-page.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { UserPageComponent } from './user/user-page/user-page.component';
 import { ProductPageComponent } from './product/product-page/product-page.component';
+import { OverShadowDirective } from './shared/directives/over-shadow.directive';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ProductPageComponent } from './product/product-page/product-page.compon
     HeaderComponent,
     ProductCardComponent,
     ButtonCardComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    OverShadowDirective
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/models/producto.model';
+
 
 
 @Component({
@@ -11,9 +12,17 @@ export class ProductCardComponent implements OnInit {
 
   @Input() producto: Product | undefined;
 
+  @Output() onClickSection: EventEmitter<void> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  goToDetail() {
+    this.onClickSection.emit();
+  }
+
+
 
 }

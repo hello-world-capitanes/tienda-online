@@ -14,10 +14,10 @@
   max-width: 250px;
 }
 
-.product-card:hover {
+/* .product-card:hover {
   z-index: 1;
   box-shadow: $shadow-card-2-active;
-}
+} */
 
 .product-card__img {
   margin: auto;
@@ -51,7 +51,7 @@
 
 
 .product-card__button {
-  align-self: center;
+
   justify-self: center;
   width: 80%;
 }
@@ -80,23 +80,7 @@
 
 /* https://stackoverflow.com/questions/54907270/how-to-specify
 -the-maximum-number-of-columns-repeat-will-create-using-auto-fit*/
-.super-grid {
-  --repeat: auto-fit;
-}
 
-@media (min-width: calc(200px * 5)) {
-  .super-grid {
-    --repeat: 5;
-  }
-}
-
-.super-grid {
-  display: grid;
-  /*grid-template-columns: repeat(auto-fit, 200px);*/
-  grid-template-columns: repeat(var(--repeat, auto-fit), minmax(calc(180px * 1), 210px));
-  grid-gap: .5rem;
-  justify-content: center;
-}
 
 @media (max-width: calc(220px * 2)) {
   .product-card__img{

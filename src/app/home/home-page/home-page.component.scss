@@ -1,3 +1,23 @@
+
 .product-container {
-  display: inline;
+  --repeat: auto-fit;
+
 }
+
+@media (min-width: calc(200px * 5)) {
+  .product-container {
+    --repeat: 5;
+
+  }
+}
+
+.product-container {
+  display: grid;
+  /*grid-template-columns: repeat(auto-fit, 200px);*/
+  grid-template-columns: repeat(var(--repeat, auto-fit), minmax(calc(180px * 1), 210px));
+  grid-gap: 1rem;
+  justify-content: center;
+}
+
+
+
