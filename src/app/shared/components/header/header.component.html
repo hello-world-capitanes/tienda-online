@@ -1,15 +1,48 @@
-  <mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Open main menu" (click)="goToHome()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>My App</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Go to user" (click)="goToUserAccount()">
-      <mat-icon>account_circle</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Go to shopping-cart" (click)="goToShoppingCart()">
-      <mat-icon>shopping_cart</mat-icon>
-    </button>
-  </mat-toolbar>
+<mat-toolbar>
+  <a mat-button class="logo" aria-label="Go to home" (click)="goToHome()">
+    <img src="assets/mercadona_logo.svg">
+  </a>
+  <form class="search-form">
+    <div class="search-icon">
+      <mat-icon>search</mat-icon>
+    </div>
+    <input type="search" matInput placeholder="Buscar productos">
+  </form>
+  <nav mat-tab-nav-bar [tabPanel]="tabPanel">
+    <a mat-tab-link (click)="sidenav?.toggle()">Categorías</a>
+    <a mat-tab-link>Mis habituales</a>
+  </nav>
 
+  <span class="spacer"></span>
 
+  <button mat-button class="profile-button" [matMenuTriggerFor]="userMenu">
+    <span>Sign in</span>
+    <mat-icon>keyboard_arrow_down</mat-icon>
+  </button>
+  <mat-menu #userMenu="matMenu" xPosition="before">
+    <h2 class="username">Guest</h2>
+    <mat-divider></mat-divider>
+    <button mat-raised-button color="accent" class="sign-in-button" aria-label="Go to user" (click)="goToUserAccount()">
+      Sign in
+    </button>
+    <mat-divider></mat-divider>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>help</mat-icon>
+        <div mat-line>Frequent questions</div>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>support_agent</mat-icon>
+        <div mat-line>Contact support</div>
+      </mat-list-item>
+    </mat-list>
+  </mat-menu>
+
+  <button mat-raised-button color="accent" aria-label="Go to shopping-cart" (click)="openMenu()">
+    <mat-icon matBadge="1" class="shopping-cart-icon">shopping_cart</mat-icon>
+    <span>1,00 €</span>
+  </button>
+</mat-toolbar>
+<mat-divider></mat-divider>
+
+<app-shoping-cart-page></app-shoping-cart-page>

@@ -1,5 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
-import { ShopingCartPageComponent } from './shopping-cart/shoping-cart-page/shoping-cart-page.component';
+import { Component } from '@angular/core';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Language } from './models/language.model';
+import { LanguageService } from './services/language.service';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +10,19 @@ import { ShopingCartPageComponent } from './shopping-cart/shoping-cart-page/shop
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  @ViewChild(ShopingCartPageComponent) shoppingCart!: ShopingCartPageComponent;
   title = 'tienda-online';
 
-  openMenu() {
-    this.shoppingCart.openMenu();
+  constructor(
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer,
+    private languageService: LanguageService,
+  ) {
+    this.languageService?.languages?.forEach(language => {
+      this.matIconRegistry.addSvgIcon(
+        language?.key,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icons/${language?.key}.svg`)
+      );
+    });
   }
+
 }

@@ -1,11 +1,14 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatDrawer } from '@angular/material/sidenav';
+import { MatTabNavPanel } from '@angular/material/tabs';
 import { Router } from '@angular/router';
+import { ShopingCartPageComponent } from 'src/app/core/shopping-cart/shoping-cart-page/shoping-cart-page.component';
 import { URL_SHOP } from 'src/app/core/url.constants';
+import { SignUpFormComponent } from 'src/app/core/user/components/sign-up-form/sign-up-form.component';
+import { SigninFormComponent } from 'src/app/core/user/components/signin-form/signin-form.component';
 import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
-import { SignUpFormComponent } from 'src/app/user/components/sign-up-form/sign-up-form.component';
-import { SigninFormComponent } from 'src/app/user/components/signin-form/signin-form.component';
 
 @Component({
   selector: 'app-header',
@@ -13,10 +16,25 @@ import { SigninFormComponent } from 'src/app/user/components/signin-form/signin-
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+
+  @Input() tabPanel?: MatTabNavPanel;
+  @Input() sidenav?: MatDrawer;
+  
+  @ViewChild(ShopingCartPageComponent) shoppingCart!: ShopingCartPageComponent;
+
   @Output() onOpenMenu: EventEmitter<void> = new EventEmitter();
-  constructor(private router: Router, private matDialog: MatDialog, private authService: AuthService) {}
+
+  constructor(
+    private router: Router,
+    private matDialog: MatDialog,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {}
+
+  openMenu() {
+    this.shoppingCart?.openMenu();
+  }
 
   goToHome() {
     this.goToURL(URL_SHOP.HOME);
@@ -28,11 +46,6 @@ export class HeaderComponent implements OnInit {
     } else {
       this.goToURL(URL_SHOP.USER);
     }
-  }
-
-  goToShoppingCart() {
-    // this.goToURL(URL_SHOP.SHOPPING_CART);
-    this.onOpenMenu.emit();
   }
 
   goToURL(url: string) {

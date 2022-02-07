@@ -1,0 +1,12 @@
+.footer {
+    mat-toolbar {
+        background: none;
+    }
+    .language-button {
+        ::ng-deep .mat-button-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}

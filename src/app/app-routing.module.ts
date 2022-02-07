@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { URL_SHOP } from './core/url.constants';
-import { HomePageComponent } from './home/home-page/home-page.component';
-import { UserPageComponent } from './user/user-page/user-page.component';
+import { HomePageComponent } from './core/home/home-page/home-page.component';
+import { UserPageComponent } from './core/user/user-page/user-page.component';
 
 
 const routes: Routes = [
@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: URL_SHOP.PRODUCT_DETAIL,
-    loadChildren: () => import('./product/product.module').then(m => m.ProductModule)
+    loadChildren: () => import('./core/product/product.module').then(m => m.ProductModule)
   },
 
   {
