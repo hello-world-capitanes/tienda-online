@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Product, ProductCard } from 'src/app/models/producto.model';
+import { Subscription } from 'rxjs';
+import { Product } from 'src/app/models/producto.model';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 
@@ -10,14 +11,17 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
   styleUrls: ['./product-card.component.scss'],
 })
 export class ProductCardComponent implements OnInit {
-  @Input() set product(value: Product | ProductCard) {
-    if ((<ProductCard>value).counter === undefined) {
-      this.counter = 0;
-      this._product = <Product>value;
-    } else {
-      this._product = (<ProductCard>value).product;
-      this.counter = (<ProductCard>value).counter;
+  @Input() set product(value: Product) {
+    this._product = value;
+
+    if(!!this.subscription) {
+      this.subscription.unsubscribe();
     }
+
+    this.subscription = this._product.counter.subscribe(counter => {
+      this.counter = counter;
+    });
+
   }
 
   @Input() smallSize = false;
@@ -26,6 +30,7 @@ export class ProductCardComponent implements OnInit {
 
   _product!: Product;
   counter!:number;
+  subscription!: Subscription
 
   constructor(private shoppingCartService: ShoppingCartService) {}
 

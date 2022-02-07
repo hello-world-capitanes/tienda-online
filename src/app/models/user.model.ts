@@ -1,4 +1,5 @@
 export interface User {
-  email: string;
+  email: string | undefined;
   password?: string;
+  logged: boolean;
 }

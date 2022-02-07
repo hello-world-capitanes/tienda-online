@@ -13,7 +13,9 @@
   <hr class="solid">
 
   <section class="shopping-cart__container">
-    <app-product-card *ngFor="let producto of listProducts" [product]="producto" [smallSize]='true'></app-product-card>
+    <ng-container *ngFor="let producto of listProducts">
+      <app-product-card *ngIf="producto.counter.value > 0"  [product]="producto" [smallSize]='true'></app-product-card>
+    </ng-container>
   </section>
   <hr class="solid">
   <section class="shopping-cart__footer">
@@ -21,7 +23,7 @@
       <h2>Total</h2>
       <h2>X</h2>
     </div>
-    <button mat-raised-button color="primary" >Tramitar pedido</button>
+    <button mat-raised-button color="primary">Tramitar pedido</button>
   </section>
 
 </div>

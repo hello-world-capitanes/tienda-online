@@ -11,7 +11,7 @@ export class ProductsService {
     return this.getAllProducts().find(product => product.id === id);
   }
 
-  getAllProducts(): Product[] {
+  getAllProducts(): Partial<Product>[] {
     return [
       {
         id: 1,
