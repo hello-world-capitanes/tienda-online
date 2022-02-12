@@ -1,5 +1,13 @@
 # TiendaOnline
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e14cd904-ce4d-431c-abe3-f832bcec4910/deploy-status)](https://app.netlify.com/sites/tienda-online-hw/deploys)
+
+## Deployment
+
+Netlify Deployment: [Tienda Online](https://tienda-online-hw.netlify.app/home)
+
+## Information
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
 
 ## Development server
@@ -25,3 +33,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Flags resource
+
+International Flags 6 Vectors Library: [svgrepo](https://www.svgrepo.com/collection/international-flags-6/3)
